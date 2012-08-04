@@ -15,7 +15,6 @@ class ButtonDown extends MovieClip { public function new() { super(); } }
 class Clippy {
   // Main
   static function main() {
-    var text:String = flash.Lib.current.loaderInfo.parameters.text;
     
     // label
     
@@ -41,7 +40,7 @@ class Clippy {
     button.hitTestState = flash.Lib.attach("ButtonDown");
     
     button.addEventListener(MouseEvent.MOUSE_UP, function(e:MouseEvent) {
-      text = ExternalInterface.call('$.fn.metaflop.getFlashShareUrl');
+      var text = ExternalInterface.call('$.fn.metaflop.getFlashShareUrl');
       flash.system.System.setClipboard(text);
       label.text = "copied!";
       label.setTextFormat(format);
